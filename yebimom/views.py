@@ -6,6 +6,7 @@ from django.shortcuts import render
 from yebimom.forms import ContactForm
 
 # Tasks
+from yebimom.tasks import send_sms
 from yebimom.tasks import send_contact_email
 
 
@@ -44,11 +45,20 @@ def search_policy(request):
 def contact(request):
     form = ContactForm()
     if request.method == 'POST':
-        send_contact_email.delay(
-            request.POST.get('email'),
-            request.POST.get('title'),
-            request.POST.get('content'),
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+
+        send_sms.delay(
+            {
+                'dest_phone': phone,
+                'dest_name': phone,
+                'msg_body': "[예비맘닷컴] 1:1 문의가 접수되었습니다. 빠르게 연락드리겠습니다. 감사합니다."
+            }
         )
+
+        send_contact_email.delay(email, title, content, phone)
     else:
         pass
 

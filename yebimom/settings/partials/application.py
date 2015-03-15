@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Application definition
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -70,3 +72,11 @@ HASHIDS_CENTER_SALT = os.environ['HASHIDS_CENTER_SALT']
 EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
 MAILGUN_ACCESS_KEY = os.environ['MAILGUN_ACCESS_KEY']
 MAILGUN_SERVER_NAME = os.environ['MAILGUN_SERVER_NAME']
+
+
+API_STORE_KEY = os.environ['API_STORE_KEY']
+API_STORE_BASE_URL = os.environ['API_STORE_BASE_URL']
+
+SMS_SEND_PHONE = os.environ['SMS_SEND_PHONE']
+SMS_SEND_NAME = os.environ['SMS_SEND_NAME']
+SMS_SUBJECT = os.environ['SMS_SUBJECT']
