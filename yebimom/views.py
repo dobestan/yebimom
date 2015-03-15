@@ -5,6 +5,9 @@ from django.shortcuts import render
 # Forms
 from yebimom.forms import ContactForm
 
+# Tasks
+from yebimom.tasks import send_contact_email
+
 
 def home(request):
     return render(request, "home.html", {})
@@ -41,7 +44,11 @@ def search_policy(request):
 def contact(request):
     form = ContactForm()
     if request.method == 'POST':
-        pass
+        send_contact_email.delay(
+            request.POST.get('email'),
+            request.POST.get('title'),
+            request.POST.get('content'),
+        )
     else:
         pass
 
