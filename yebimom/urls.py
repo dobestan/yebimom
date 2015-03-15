@@ -12,6 +12,8 @@ urlpatterns = patterns(
 
     # Django 3rd Party Modules
     url('', include('social.apps.django_app.urls', namespace='social')),
+    url(r'^summernote/', include('django_summernote.urls')),
+
 
     # Yebimom Urls
     url(r'^$', 'yebimom.views.home', name='home'),

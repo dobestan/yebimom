@@ -22,6 +22,7 @@ INSTALLED_APPS = (
     'storages',
     'imagekit',
     'rest_framework',
+    'django_summernote',
 
     # Yebimom Apps
     'users',

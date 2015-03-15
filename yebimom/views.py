@@ -2,6 +2,9 @@
 
 from django.shortcuts import render
 
+# Forms
+from yebimom.forms import ContactForm
+
 
 def home(request):
     return render(request, "home.html", {})
@@ -36,4 +39,12 @@ def search_policy(request):
 
 
 def contact(request):
-    return render(request, "contact.html", {})
+    form = ContactForm()
+    if request.method == 'POST':
+        pass
+    else:
+        pass
+
+    return render(request, "contact.html", {
+        'form': form
+    })

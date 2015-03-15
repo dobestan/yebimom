@@ -2,4 +2,17 @@
 
 {% block content %}
 <h1>1:1 문의 게시판</h1>
+
+<form action="" method="post">{% csrf_token %}
+    <div>
+        이메일: {{ form.email }}
+    </div>
+    <div>
+        제목: {{ form.title }}
+    </div>
+    <div>
+        문의내용 : {{ form.content|safe }}
+    </div>
+    <input type="submit" value="문의하기" />
+</form>
 {% endblock %}
