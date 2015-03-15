@@ -27,6 +27,9 @@ urlpatterns = patterns(
     url(r'^rules/disclaimer/$', 'yebimom.views.disclaimer', name='disclaimer'),
     url(r'^rules/search_policy/$', 'yebimom.views.search_policy', name='search_policy'),
 
+    # Support
+    url(r'^contact/$', 'yebimom.views.contact', name='contact'),
+
     # Included Apps Urls
     url(r'^events/', include('events.urls', namespace='events', app_name='events')),
     url(r'^api/', include('api.urls', namespace='api', app_name='api')),
