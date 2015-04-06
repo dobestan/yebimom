@@ -17,10 +17,4 @@ class CenterSerializer(serializers.ModelSerializer):
             'url',
             'price',
             'hash_id',
-            'region_first_layer',
-            'region_second_layer',
-            'region_third_layer',
-            'facility_set',
-            'policy_set',
-            'program_set',
         )
