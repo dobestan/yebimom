@@ -6,15 +6,17 @@ from centers.models import Center
 
 
 class CenterSerializer(serializers.ModelSerializer):
+    api_url = serializers.HyperlinkedIdentityField(view_name='api:centers-detail', lookup_field="hash_id")
 
     class Meta:
         model = Center
         fields = (
             'id',
+            'hash_id',
             'name',
             'address',
             'phone',
             'url',
             'price',
-            'hash_id',
+            'api_url',
         )
